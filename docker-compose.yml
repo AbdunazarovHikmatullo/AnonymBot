@@ -1,0 +1,15 @@
+services:
+  bot:
+    build: .
+    container_name: anonym_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    networks:
+      - bot_net
+
+networks:
+  bot_net:
+    driver: bridge
